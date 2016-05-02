@@ -1,8 +1,12 @@
 package iso.caixas;
 
+import java.io.IOException;
+
+import iso.CorregoSaidaISO;
+
 public class CaixaCompleta extends Caixa {
 
-	//1 byte
+	// 1 byte
 	public int versao;
 	public int bandeira;
 
@@ -10,6 +14,12 @@ public class CaixaCompleta extends Caixa {
 		super(tipoCaixa);
 		this.versao = versao;
 		this.bandeira = flag;
+		this.tamanho = 12;
 	}
 
+	public void salva(CorregoSaidaISO csi) throws IOException {
+		super.salva(csi);
+		csi.escreveByte(versao);
+		csi.escreveInt24(bandeira);
+	}
 }

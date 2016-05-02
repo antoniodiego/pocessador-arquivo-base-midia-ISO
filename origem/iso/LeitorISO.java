@@ -36,7 +36,7 @@ public class LeitorISO {
 	}
 
 	public Caixa leCaixa() throws IOException {
-		System.out.println("Lendo caixa");
+		System.out.println("Lendo caixa...");
 
 		long tamanho = en.leNumero32();
 		System.out.println("Tamanho caixa: " + tamanho + " bytes");
@@ -46,7 +46,7 @@ public class LeitorISO {
 		}
 
 		String tipo = en.leString32();
-		System.out.println("Tipo: " + tipo);
+		System.out.println("Tipo: " + tipo+".");
 
 		if (tipo.equals("ftyp")) {
 			CaixaTipoArquivo caixa = new CaixaTipoArquivo();
@@ -126,8 +126,8 @@ public class LeitorISO {
 
 		// Fazer: pular iods
 
-		if (tipo.equals("tkhd")) {
-			en.pula(4+(tamanho-8));
+		if (tipo.equals("tkhd") || tipo.equals("mdhd")) {
+			en.pula(tamanho-8);
 		}
 		
 		return new Caixa(tipo);
