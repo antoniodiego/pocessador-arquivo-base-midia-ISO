@@ -16,6 +16,14 @@ public class CaixaInformacaoMidia extends Caixa {
 		this.cs = cs;
 		this.tamanho = 8 + ct.tamanho + cs.tamanho;
 	}
+	
+	public CaixaInformacaoMidia() {
+		super("minf");
+
+//		this.ct = ct;
+//		this.cs = cs;
+		this.tamanho = 8;// + ct.tamanho + cs.tamanho;
+	}
 
 	public void salva(CorregoSaidaISO csi) throws IOException{
 		super.salva(csi);

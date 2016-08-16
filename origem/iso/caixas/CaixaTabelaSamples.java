@@ -19,6 +19,10 @@ public class CaixaTabelaSamples extends Caixa {
 		this.tamanho = 8 + ds.tamanho + tempoS.tamanho;
 	}
 
+	public CaixaTabelaSamples() {
+		super("stbl");
+	}
+
 	public void salva(CorregoSaidaISO csi) throws IOException {
 		super.salva(csi);
 		ds.salva(csi);

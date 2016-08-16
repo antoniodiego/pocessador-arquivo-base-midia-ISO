@@ -11,19 +11,31 @@ public class Caixa {
 	public String tipo;
 	long tamanhoExtendido;
 	byte[] user_type;
-	
+
 	protected List<Caixa> caixas;
-	
+
 	public Caixa(String tipoCaixa) {
 		this.tipo = tipoCaixa;
+		this.tamanho = 8;
 		caixas = new ArrayList<>();
+	}
+
+	public Caixa recebeCaixa(String tipo) {
+		Caixa ca;
+		for (int c = 0; c < caixas.size(); c++) {
+			ca = caixas.get(c);
+			if (ca.tipo.equals(tipo)) {
+				return ca;
+			}
+		}
+		return null;
 	}
 
 	public void adiciona(Caixa c) {
 		caixas.add(c);
 		this.tamanho += c.tamanho;
 	}
-	
+
 	/* Tipo caixa 4 bytes */
 	public Caixa(String tipoCaixa, byte[] tipoextendido) {
 		this.tipo = tipoCaixa;
@@ -41,10 +53,12 @@ public class Caixa {
 	public String toString() {
 		return tipo;
 	}
-	
-	public void salva(CorregoSaidaISO csi) throws IOException{
-		System.out.println("Salvando tamanho: "+tamanho);
+
+	public void salva(CorregoSaidaISO csi) throws IOException {
+		System.out.println("Salvando caixa. Tamanho: " + tamanho);
 		csi.escreveInt32(tamanho);
 		csi.escreveString32(tipo);
 	}
+
+	
 }

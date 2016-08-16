@@ -15,11 +15,11 @@ public class DecritorObjetoInicial extends DescritorObjeto{
    int audioProfileLevelIndication;
    int visualProfileLevelIndication;
    int graphicsProfileLevelIndication;
-   ES_Descriptor esDescr[1 .. 255];
-   OCI_Descriptor ociDescr[0 .. 255];
-   IPMP_DescriptorPointer ipmpDescrPtr[0 .. 255];
-   IPMP_Descriptor ipmpDescr [0 .. 255];
-   IPMP_ToolListDescriptor toolListDescr[0 .. 1];
+  // ES_Descriptor esDescr[1 .. 255];
+  // OCI_Descriptor ociDescr[0 .. 255];
+ // IPMP_DescriptorPointer ipmpDescrPtr[0 .. 255];
+ //  IPMP_Descriptor ipmpDescr [0 .. 255];
+  // IPMP_ToolListDescriptor toolListDescr[0 .. 1];
    
    
 }

@@ -19,8 +19,8 @@ public class CaixaCabecalhoMidia extends CaixaCompleta {
 	public byte[] language_5;
 	public int predefinido_16;
 
-	public CaixaCabecalhoMidia(int versao) {
-		super("mdhd", versao, 0);
+	public CaixaCabecalhoMidia(int versao,int flag) {
+		super("mdhd", versao, flag);
 		this.language_5 = new byte[] { 'a', 'b', 'c' };
 		this.tamanho = 12 + 20;
 	}

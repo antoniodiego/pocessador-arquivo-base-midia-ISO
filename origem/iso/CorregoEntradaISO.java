@@ -3,7 +3,7 @@ package iso;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class CorregoEntradaISO {
+public class CorregoEntradaISO extends InputStream{
 
 	private InputStream en;
 
@@ -58,15 +58,21 @@ public class CorregoEntradaISO {
 	public long leNumero32() throws IOException {
 		byte[] quatroBytes = new byte[4];
 		en.read(quatroBytes);
-		long tamanho = ((quatroBytes[0]&0xff) << 24)  + ((quatroBytes[1]&0xff) << 16) + ((quatroBytes[2]&0xff) << 8) + (quatroBytes[3]&0xff);
+		long tamanho = ((quatroBytes[0] & 0xff) << 24) + ((quatroBytes[1] & 0xff) << 16)
+				+ ((quatroBytes[2] & 0xff) << 8) + (quatroBytes[3] & 0xff);
 		return tamanho;
 	}
 
-	public void leTotal(byte[] dados) throws IOException {
-		en.read(dados);
+	public int le(byte[] dados) throws IOException {
+		return en.read(dados);
 	}
 
 	public void pula(long n) throws IOException {
 		en.skip(n);
+	}
+
+	@Override
+	public int read() throws IOException {
+		return en.read();
 	}
 }

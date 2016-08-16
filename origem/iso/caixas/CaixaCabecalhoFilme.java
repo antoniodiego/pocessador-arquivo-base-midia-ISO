@@ -20,7 +20,7 @@ public class CaixaCabecalhoFilme extends CaixaCompleta {
 
 	public long idProximoTrack;
 
-	public CaixaCabecalhoFilme(int versao) {
+	public CaixaCabecalhoFilme(int versao,int bandeira) {
 		super("mvhd", versao, 0);
 		predefinido = new long[] { 0, 0, 0, 0, 0, 0 };
 
